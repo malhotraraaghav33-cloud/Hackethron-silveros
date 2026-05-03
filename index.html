@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SilverOS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="desktop">
+
+  <div class="app-icon" onclick="openApp('files','📁')">
+    <div class="icon">📁</div><p>Files</p>
+  </div>
+
+  <div class="app-icon" onclick="openApp('browser','🌐')">
+    <div class="icon">🌐</div><p>Browser</p>
+  </div>
+
+  <div class="app-icon" onclick="openApp('calc','🧮')">
+    <div class="icon">🧮</div><p>Calculator</p>
+  </div>
+
+  <div class="app-icon" onclick="openApp('settings','⚙️')">
+    <div class="icon">⚙️</div><p>Settings</p>
+  </div>
+
+</div>
+
+<div class="taskbar">
+  <div id="taskApps"></div>
+  <button onclick="startVoice()">🎤</button>
+</div>
+
+<div id="files" class="window">
+  <div class="title">File Explorer <span onclick="closeApp('files')">✖</span></div>
+  <div class="explorer">
+    <div class="sidebar">
+      <p onclick="loadFolder('home')">Home</p>
+      <p onclick="loadFolder('docs')">Documents</p>
+      <p onclick="loadFolder('images')">Images</p>
+    </div>
+    <div id="fileArea" class="files"></div>
+  </div>
+</div>
+
+<div id="browser" class="window">
+  <div class="title">Browser <span onclick="closeApp('browser')">✖</span></div>
+  <input id="searchBox" placeholder="Search...">
+  <button onclick="searchWeb()">Go</button>
+  <iframe id="browserFrame"></iframe>
+</div>
+
+<div id="calc" class="window">
+  <div class="title">Calculator <span onclick="closeApp('calc')">✖</span></div>
+  <div id="screen">0</div>
+  <div class="grid">
+    <button onclick="clearAll()">C</button>
+    <button onclick="addValue('%')">%</button>
+    <button onclick="addValue('/')">÷</button>
+    <button onclick="removeLast()">⌫</button>
+
+    <button onclick="addValue('7')">7</button>
+    <button onclick="addValue('8')">8</button>
+    <button onclick="addValue('9')">9</button>
+    <button onclick="addValue('*')">×</button>
+
+    <button onclick="addValue('4')">4</button>
+    <button onclick="addValue('5')">5</button>
+    <button onclick="addValue('6')">6</button>
+    <button onclick="addValue('-')">−</button>
+
+    <button onclick="addValue('1')">1</button>
+    <button onclick="addValue('2')">2</button>
+    <button onclick="addValue('3')">3</button>
+    <button onclick="addValue('+')">+</button>
+
+    <button onclick="addValue('0')">0</button>
+    <button onclick="addValue('.')">.</button>
+    <button onclick="calculate()" class="equal">=</button>
+  </div>
+</div>
+
+<div id="settings" class="window">
+  <div class="title">Settings <span onclick="closeApp('settings')">✖</span></div>
+  <button onclick="changeWall(1)">Wallpaper 1</button>
+  <button onclick="changeWall(2)">Wallpaper 2</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
